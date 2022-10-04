@@ -1,54 +1,47 @@
-package sorting;
+import java.util.Arrays;
 
-public class mergeSorting {
-	
-	static void merge(int a[],int l, int mid, int h) {
-		int i=l, j=mid+1,k=l;
-		int b[]=new int [a.length];
-		while(i<=mid && j<=h) {
-			if(a[i]<=a[j]) {
-				b[k]=a[i];
-				i++;
-			}else {
-				b[k]=a[j];
-				j++;
-			}
-			k++;
-		}
-		if(i>mid) {
-			while(j<=h) {
-				b[k]=a[j];
-				k++; j++;
-			}
-		}else {
-			while(i<=mid) {
-				b[k]=a[i];
-				i++;k++;
-			}
-		}
-		for(i=l;i<h;i++) {
-			a[i]=b[i];
-		}
-	}
-	
-	static void mergeSort(int a[] ,int l,int h) {
-		if(l<h) {
-			int mid=(l+h)/2;
-			mergeSort(a,l,mid);
-			mergeSort(a,mid+1,h);
-			merge(a,l,mid,h);
-		}
-		
-	}
+public class mergeSort {
+    public static void main(String[] args) {
+    int[] arr = {5,32,12,31,2};
+     mergesort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int arr []= {4,2,6,1,8,-66,33,22,111};
-		
-		mergeSort(arr,0,arr.length-1);
-		for(int e:arr) System.out.print(e +"  ");
-		
+    static int[] mergesort(int[] arr) {
+        if (arr.length == 1) {
+            return arr;
+        }
+        int mid = arr.length / 2;
+        int[] left = mergesort(Arrays.copyOfRange(arr, 0, mid));
+        int[] right = mergesort(Arrays.copyOfRange(arr, mid, arr.length));
+        return merge(left, right);
+    }
 
-	}
+    private static int[] merge(int[] first, int[] second) {
+        int[] mix = new int[first.length + second.length];
+        int i = 0;
 
-}
+        int j = 0;
+        int k = 0;
+        while (i < first.length && j < second.length) {
+            if (first[i] < second[j]) {
+                mix[k] = first[i];
+                i++;
+            } else {
+                mix[k] = second[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < first.length) {
+            mix[k] = first[i];
+            i++;
+            k++;
+        }
+        while (j < second.length) {
+            mix[k] = second[j];
+            j++;
+            k++;
+        }
+        return mix;
+    }
