@@ -813,6 +813,21 @@ Make some algorithms in differents languages, about the issues. How it's work ?
       <td class="text-center"></td>
       <td class="text-center"></td>
     </tr>
+      <!-- Greddy Algorithm-->
+    <tr>
+      <td><a href="./algorithms/ar-grdy">Greddy Algorithm</a></td>
+      <td><code>Greddy Algorithm</code></td>
+      <td class="text-center"></td>
+      <td class="text-center"></td>
+      <td class="text-center"></td>
+      <td class="text-center"></td>
+      <td class="text-center"></td>
+      <td class="text-center">Done</td>
+      <td class="text-center"></td>
+      <td class="text-center"></td>
+      <td class="text-center"></td>
+      <td class="text-center"></td>
+    </tr>
     
   </tbody>
 </table>
